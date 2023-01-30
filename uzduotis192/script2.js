@@ -25,8 +25,20 @@ const findMaxNumber = (numbers) => {
     return biggestNumber;
 }
 
+// Užduotis 194
+propPrice = 50;
+const updateObject = (objectToUpdate, propPrice) => {
+    if (!objectToUpdate.price) {
+        objectToUpdate.price = propPrice;
+        return objectToUpdate;
+    } else {
+        return "Objektas jau turi kainą!";
+    }
+
+}
 
 
 
 
-module.exports = [palindromas, findMaxNumber];
+
+module.exports = [palindromas, findMaxNumber, updateObject];

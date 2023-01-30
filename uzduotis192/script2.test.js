@@ -1,4 +1,4 @@
-const [palindromas, findMaxNumber] = require("./script2");
+const [palindromas, findMaxNumber, updateObject] = require("./script2");
 
 // uzduotis 192
 test("tikrinsime ar zodis yra palindromas", () => {
@@ -27,3 +27,38 @@ test("Tikrinsime ar funkcija suranda didziausia skaiciu is neigiamu skaiciu ir n
 
 });
 
+// Užduotis 194
+const myObject = {
+    productName: "Televizorius",
+    productmanufacturer: "Sony",
+}
+const productPrice = 50;
+
+test("Tikrinsime ar funkcija updateObject prideda nauja property price  objektui", () => {
+    updateObject(myObject, productPrice);
+    expect(myObject).toHaveProperty("price", 50);
+
+});
+test("Tikrinsime ar funkcija neprideda antra karta objektui property price", () => {
+
+    const nextUpdatedObject = updateObject(myObject, 100);
+    expect(nextUpdatedObject).toBe("Objektas jau turi kainą!");
+
+});
+
+test("Tikriname ar funkcija nepakeičia esamos kainos", () => {
+    const myObject1 = {
+        productName: "Televizorius",
+        productManufacturer: "Sony",
+        price: 900,
+    };
+
+    const propertyPrice1 = 899;
+
+    const myOject2 = myObject1;
+    updateObject(myObject1, propertyPrice1);
+
+    expect(myObject1).toEqual(myOject2);
+
+
+})
